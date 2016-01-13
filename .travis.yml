@@ -3,7 +3,7 @@ python:
   - "2.7"
   - "3.4"
 # command to install dependencies
-install: "pip install -r test/testing_requirements.txt"
+install: "if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then pip install -r test/testing_requirements.txt; fi"
 # command to run tests
 script:
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then python -m unittest discover; exit; fi
