@@ -7,8 +7,9 @@ install: "if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then pip install -r test/testin
 # command to run tests
 script:
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then python -m unittest discover; exit; fi
-  - python setup.py install
   - git clone https://github.com/garridev/agora-results.git
+  - cd agora-results/
+  - rm -rf requirements.txt
   - wget http://pastebin.com/raw/HqDGhUaD
   - mv HqDGhUaD requirements.txt
   - python setup.py install
